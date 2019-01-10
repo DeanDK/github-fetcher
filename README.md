@@ -28,3 +28,7 @@ HTTP/1.1 403 Forbidden
 # Testing
 
 Parts of the application were tested using Jest and Enzyme to show the proof of concept, such as Enzymes' Virtual DOM, routing tests, PropTypes verification and reducers.
+
+# Architecture
+
+Application uses vertical architecture

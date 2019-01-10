@@ -23,6 +23,11 @@ a:hover {
   color: black !important;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
 /* ========================
           Header
    ======================== */
@@ -47,4 +52,28 @@ a:hover {
 
 .header__navigation-links-link-add {
   display: inline-block;
+}
+
+/* ========================
+          SearchBar class
+   ======================== */
+
+.wrapper_label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+input {
+  background-color: #f2f2f2;
+  border: 3px solid #ddd;
+  border-radius: 20pt;
+  margin: 0;
+  padding-left: 15pt;
+  padding-right: 15pt;
+  font-size: 15px;
+  height: 30pt;
+  outline: none;
+  margin-top: 1rem;
+  transition: 0.2s ease-in-out;
+  color: #333;
 }

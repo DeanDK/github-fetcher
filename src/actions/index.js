@@ -2,11 +2,10 @@ import axios from "axios";
 import { profileUrl } from "./../config";
 
 export function getProfile(username) {
-  const request = axios.get(`${profileUrl}/DeanDK`).then(res => res.data);
-  return { type: "GET_PROFILE", payload: request };
-}
+  const request = axios
+    .get(`${profileUrl}/${username}`)
+    .then(res => res.data)
+    .catch(err => Promise.reject({ status: 500, message: "Invalid name" }));
 
-export function getAllWines() {
-  const request = axios.get(`${URL}/wines`).then(res => res.data);
-  return { type: "GET_WINES", payload: request };
+  return { type: "GET_PROFILE", payload: request };
 }

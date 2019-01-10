@@ -4,27 +4,38 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 
 import { getProfile } from "./../actions";
+import Items from "./../widgets/items.js";
 import SearchBar from "./../widgets/search_bar.js";
 
 class ProfileContainer extends Component {
   state = {
-    data: []
+    data: [],
+    name: ""
   };
 
   componentWillMount() {
     this.props.getProfile();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.profile)
-      this.setState({ data: nextProps.profile.profileData });
-  }
+  handleName = e => {
+    this.setState({ name: e.target.value });
+  };
+
+  dispatchgetProfileAction = e => {
+    if (e.key === "Enter") this.props.getProfile(this.state.name);
+  };
+
+  _renderItems = data => (data ? <Items {...data} /> : null);
 
   render() {
-    console.log(this.state.data);
     return (
       <div className="wrapper">
-        <SearchBar page="profile" />
+        <SearchBar
+          page="profile"
+          handleName={this.handleName}
+          dispatchgetProfileAction={this.dispatchgetProfileAction}
+        />
+        {this._renderItems(this.props.profile.profileData)}
       </div>
     );
   }

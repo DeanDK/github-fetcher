@@ -1,3 +1,3 @@
 ## UI
 
-![Screenshot](./images/screenshot.PNG)
+![Screenshot](images/screenshot.PNG)

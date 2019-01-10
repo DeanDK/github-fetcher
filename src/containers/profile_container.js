@@ -10,7 +10,6 @@ import SearchBar from "./../widgets/search_bar.js";
 class ProfileContainer extends Component {
   state = {
     data: [],
-    repos: [],
     name: ""
   };
 
@@ -58,5 +57,5 @@ export default connect(
 )(ProfileContainer);
 
 ProfileContainer.propTypes = {
-  wines: PropTypes.object
+  profile: PropTypes.object
 };

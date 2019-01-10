@@ -1,7 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Items = props => {
-  console.log(props);
   const renderItems = () =>
     props.profileRepos && props.profileRepos.message !== "Something went wrong"
       ? props.profileRepos.map((item, i) => {
@@ -81,3 +81,7 @@ const Items = props => {
 };
 
 export default Items;
+
+Items.propTypes = {
+  props: PropTypes.object
+};

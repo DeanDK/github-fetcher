@@ -13,14 +13,6 @@ const Header = () => {
           className="header__logo"
         />
       </Link>
-      <nav className="header__navigation-links">
-        <div className="header__navigation-links-link-home">
-          <Link to="/">Profiles</Link>
-        </div>
-        <div className="header__navigation-links-link-add">
-          <Link to="/repos">Repositories</Link>
-        </div>
-      </nav>
     </header>
   );
 };

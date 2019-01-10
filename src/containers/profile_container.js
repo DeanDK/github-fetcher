@@ -3,39 +3,40 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 
-import { getProfile } from "./../actions";
+import { getProfile, getRepos } from "./../actions";
 import Items from "./../widgets/items.js";
 import SearchBar from "./../widgets/search_bar.js";
 
 class ProfileContainer extends Component {
   state = {
     data: [],
+    repos: [],
     name: ""
   };
-
-  componentWillMount() {
-    this.props.getProfile();
-  }
 
   handleName = e => {
     this.setState({ name: e.target.value });
   };
 
   dispatchgetProfileAction = e => {
-    if (e.key === "Enter") this.props.getProfile(this.state.name);
+    if (e.key === "Enter") {
+      this.props.getProfile(this.state.name);
+      this.props.getRepos(this.state.name);
+    }
   };
 
   _renderItems = data => (data ? <Items {...data} /> : null);
 
   render() {
     return (
-      <div className="wrapper">
+      <div>
         <SearchBar
-          page="profile"
           handleName={this.handleName}
           dispatchgetProfileAction={this.dispatchgetProfileAction}
         />
-        {this._renderItems(this.props.profile.profileData)}
+        {this.props.profile.profileData
+          ? this._renderItems(this.props.profile)
+          : null}
       </div>
     );
   }
@@ -48,7 +49,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getProfile }, dispatch);
+  return bindActionCreators({ getProfile, getRepos }, dispatch);
 }
 
 export default connect(

@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/* This could also be seperated into 2 different components, one representing
+   repositories and the second one representing profile information */
 const Items = props => {
   const renderItems = () =>
     props.profileRepos && props.profileRepos.message !== "Something went wrong"
